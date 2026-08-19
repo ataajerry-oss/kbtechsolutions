@@ -3,22 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KB Tech Solutions — Technology & Creative Services</title>
+  <title>Kofi Baisie | Portfolio & Services</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- EMBEDDED CSS -->
   <style>
+    /* 60-30-10 COLOR RULE MATRIX
+       60% Main Background: Soft Gray (#EAEAEA / #F4F4F5)
+       30% Text & Dark Elements: Charcoal Black (#18181B / #27272A)
+       10% Vibrant Accent: Electric Orange (#FF5500)
+    */
     :root {
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --bg-dark: #0f172a;
-      --bg-card: #1e293b;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
-      --accent: #38bdf8;
-      --border: #334155;
-      --star-color: #f59e0b;
-      --whatsapp: #25d366;
+      --bg-60-main: #eaeaea;
+      --bg-60-card: #f4f4f5;
+      --text-30-dark: #18181b;
+      --text-30-muted: #52525b;
+      --accent-10: #ff5500;
+      --accent-10-hover: #e04b00;
+      --accent-10-light: #ffebe0;
+      --border: #d4d4d8;
     }
 
     * {
@@ -28,296 +30,520 @@
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background-color: var(--bg-dark);
-      color: var(--text-main);
+      background-color: var(--bg-60-main);
+      color: var(--text-30-dark);
       line-height: 1.6;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* Navbar */
-    .navbar {
+    /* TOP STICKY NAVIGATION */
+    header {
+      background-color: var(--bg-60-card);
+      border-bottom: 2px solid var(--border);
       position: sticky;
       top: 0;
-      background-color: rgba(15, 23, 42, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
       z-index: 1000;
-      padding: 15px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
     }
 
-    .nav-container {
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding: 16px 0;
+      position: relative;
     }
 
     .logo {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text-main);
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text-30-dark);
       text-decoration: none;
+      letter-spacing: -0.5px;
     }
 
-    .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
+    .logo span {
+      color: var(--accent-10);
+    }
 
-.logo img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-}
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
 
-    .nav-links a:hover { color: var(--text-main); }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-30-dark);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-10);
+    }
 
     .mobile-toggle {
       display: none;
-      background: none;
-      border: none;
-      color: var(--text-main);
       font-size: 1.5rem;
+      color: var(--text-30-dark);
       cursor: pointer;
     }
 
-    /* Buttons */
+    /* HERO & ABOUT ME SECTION */
+    .hero {
+      padding: 80px 0 60px;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-img-container {
+      flex: 0 0 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 4px solid var(--accent-10);
+      box-shadow: 0 10px 25px rgba(255, 85, 0, 0.15);
+      overflow: hidden;
+      margin: 0 auto;
+      transition: transform 0.3s ease;
+    }
+
+    .hero-img-container:hover {
+      transform: scale(1.03);
+    }
+
+    .hero-img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      color: var(--text-30-dark);
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .about-paragraph {
+      font-size: 1.05rem;
+      color: var(--text-30-muted);
+      margin-bottom: 25px;
+      text-align: justify;
+    }
+
+    /* 10% ACCENT CALL TO ACTION BUTTONS */
     .btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 20px;
+      background-color: var(--accent-10);
+      color: #ffffff;
+      padding: 12px 24px;
       border-radius: 6px;
-      font-weight: 600;
       text-decoration: none;
-      cursor: pointer;
-      transition: all 0.3s;
+      font-weight: 700;
       border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .btn-primary { background-color: var(--primary); color: #fff; }
-    .btn-primary:hover { background-color: var(--primary-hover); }
-
-    .btn-secondary { background-color: var(--bg-card); color: var(--text-main); border: 1px solid var(--border); }
-    .btn-secondary:hover { border-color: var(--accent); }
-
-    .btn-whatsapp { background-color: var(--whatsapp); color: #fff; }
-    .btn-whatsapp:hover { background-color: #1eb956; }
-
-    /* Hero */
-    .hero { padding: 80px 0; }
-    .hero-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
+    .btn:hover {
+      background-color: var(--accent-10-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 85, 0, 0.25);
     }
 
-    .badge {
-      background: rgba(37, 99, 235, 0.15);
-      color: var(--accent);
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      border: 1px solid rgba(56, 189, 248, 0.3);
+    .btn-dark {
+      background-color: var(--text-30-dark);
+      color: #ffffff;
     }
 
-    .hero-content h1 { font-size: 2.6rem; margin: 15px 0; line-height: 1.2; }
-    .hero-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 25px; }
-    .hero-btns { display: flex; gap: 15px; flex-wrap: wrap; }
-
-    .hero-card {
-      background-color: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      overflow: hidden;
+    .btn-dark:hover {
+      background-color: #3f3f46;
+      box-shadow: 0 6px 20px rgba(24, 24, 27, 0.2);
     }
 
-    .card-header {
-      background-color: #0f172a;
-      padding: 10px 15px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .dot { height: 10px; width: 10px; border-radius: 50%; }
-    .red { background-color: #ef4444; }
-    .yellow { background-color: #f59e0b; }
-    .green { background-color: #10b981; }
-
-    .card-title { margin-left: 10px; font-size: 0.8rem; color: var(--text-muted); }
-    .code-preview { padding: 20px; font-family: monospace; font-size: 0.9rem; color: #e2e8f0; }
-
-    .kwd { color: #f472b6; }
-    .str { color: #34d399; }
-    .fun { color: #60a5fa; }
-
-    /* Contact Details Cards */
-    .contact-bar {
-      padding: 40px 0;
-      background-color: #0b1120;
+    /* SECTIONS GLOBAL STYLING */
+    section {
+      padding: 70px 0;
       border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
     }
 
-    .contact-grid {
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--text-30-dark);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title span {
+      color: var(--accent-10);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-30-muted);
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+    }
+
+    /* SERVICES SECTION */
+    .services-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
 
-    .contact-info-card {
-      background-color: var(--bg-card);
-      padding: 20px;
-      border-radius: 8px;
+    .service-card {
+      background-color: var(--bg-60-card);
       border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--accent-10);
+    }
+
+    .service-icon {
+      width: 55px;
+      height: 55px;
+      background-color: var(--accent-10-light);
+      color: var(--accent-10);
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 15px;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin: 0 auto 15px;
     }
 
-    .contact-info-card i {
-      font-size: 1.8rem;
-      color: var(--accent);
+    .service-card h3 {
+      color: var(--text-30-dark);
+      margin-bottom: 10px;
+      font-size: 1.15rem;
     }
 
-    .contact-info-card a {
-      color: var(--text-main);
-      text-decoration: none;
-      word-break: break-all;
+    .service-card p {
+      color: var(--text-30-muted);
+      font-size: 0.9rem;
     }
 
-    .contact-info-card a:hover {
-      color: var(--accent);
+    /* ACADEMIC TIMELINE (JHS -> SHS -> University) */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
     }
 
-    /* Services */
-    .services { padding: 80px 0; background-color: #0b1120; }
-    .section-title { text-align: center; margin-bottom: 40px; }
-    .section-title h2 { font-size: 2rem; margin-bottom: 10px; }
-    .section-title p { color: var(--text-muted); }
-
-    .grid { display: grid; gap: 25px; }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
-
-    .service-card {
-      background-color: var(--bg-card);
-      padding: 25px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      transition: transform 0.3s;
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background-color: var(--border);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1.5px;
     }
 
-    .service-card:hover { transform: translateY(-5px); }
-    .service-card .icon { font-size: 2rem; color: var(--accent); margin-bottom: 12px; }
-    .service-card h3 { margin-bottom: 8px; }
-    .service-card p { color: var(--text-muted); font-size: 0.95rem; }
+    .timeline-item {
+      padding: 10px 35px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+    }
 
-    /* Reviews */
-    .reviews { padding: 80px 0; }
-    .review-card {
-      background-color: var(--bg-card);
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      right: -7px;
+      background-color: var(--accent-10);
+      border: 3px solid var(--bg-60-main);
+      top: 20px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left { left: 0; }
+    .right { left: 50%; }
+    .right::after { left: -7px; }
+
+    .timeline-content {
       padding: 20px;
-      border-radius: 8px;
+      background-color: var(--bg-60-card);
       border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .timeline-badge {
+      display: inline-block;
+      background-color: var(--accent-10);
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 0.75rem;
+      padding: 3px 10px;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-content h3 {
+      color: var(--text-30-dark);
+      font-size: 1.1rem;
+    }
+
+    .timeline-content p {
+      color: var(--text-30-muted);
+      font-size: 0.9rem;
+    }
+
+    /* AUTOMATIC & MANUAL SLIDING PROJECT CAROUSEL */
+    .carousel-container {
+      position: relative;
+      max-width: 850px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background-color: var(--bg-60-card);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+      touch-action: pan-y;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .slide-img-box {
+      width: 100%;
+      height: 380px;
+      background-color: #d4d4d8;
+      overflow: hidden;
+    }
+
+    .slide-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-caption {
+      padding: 20px 25px;
+      background-color: var(--bg-60-card);
+      border-top: 1px solid var(--border);
+    }
+
+    .slide-caption h3 {
+      color: var(--text-30-dark);
+      font-size: 1.3rem;
+      margin-bottom: 5px;
+    }
+
+    .slide-caption p {
+      color: var(--text-30-muted);
+      font-size: 0.95rem;
+    }
+
+    /* CAROUSEL CONTROLS */
+    .carousel-btn {
+      position: absolute;
+      top: 45%;
+      transform: translateY(-50%);
+      background-color: var(--accent-10);
+      color: #ffffff;
+      border: none;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .carousel-btn:hover {
+      background-color: var(--text-30-dark);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-btn { left: 15px; }
+    .next-btn { right: 15px; }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      padding: 15px 10px 15px;
+      flex-wrap: wrap;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--border);
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .dot.active {
+      background-color: var(--accent-10);
+      transform: scale(1.25);
+    }
+
+    /* REVIEWS SECTION */
+    .reviews-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .review-form-card, .review-list-card {
+      background-color: var(--bg-60-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 25px;
+    }
+
+    .form-group {
       margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text-30-dark);
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      outline: none;
+      background-color: #ffffff;
+      color: var(--text-30-dark);
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      border-color: var(--accent-10);
+    }
+
+    .review-item {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 12px;
+    }
+
+    .review-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
     }
 
     .review-header {
       display: flex;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 4px;
     }
 
-    .stars { color: var(--star-color); }
-
-    .review-form-wrapper {
-      margin-top: 50px;
-      background-color: var(--bg-card);
-      padding: 30px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
+    .reviewer-name {
+      font-weight: 700;
+      color: var(--text-30-dark);
     }
 
-    .review-form-wrapper h3 { margin-bottom: 20px; text-align: center; }
-
-    .form-group { margin-bottom: 15px; }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid var(--border);
-      background-color: #0f172a;
-      color: var(--text-main);
-      outline: none;
+    .stars {
+      color: var(--accent-10);
     }
 
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--accent);
-    }
-
-    .form-status {
-      margin-top: 15px;
-      padding: 12px;
-      border-radius: 6px;
-      display: none;
-      text-align: center;
+    .review-text {
+      color: var(--text-30-muted);
       font-size: 0.9rem;
     }
 
-    .form-status.success {
-      display: block;
-      background-color: rgba(16, 185, 129, 0.15);
-      color: #34d399;
-      border: 1px solid rgba(16, 185, 129, 0.3);
+    /* CONTACT SECTION */
+    .contact-card {
+      background-color: var(--bg-60-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 35px;
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto;
     }
 
-    .form-status.error {
-      display: block;
-      background-color: rgba(239, 68, 68, 0.15);
-      color: #f87171;
-      border: 1px solid rgba(239, 68, 68, 0.3);
+    .contact-card h3 {
+      color: var(--text-30-dark);
+      font-size: 1.6rem;
+      margin-bottom: 10px;
     }
 
-    /* Footer */
-    footer {
-      padding: 40px 0 20px;
-      border-top: 1px solid var(--border);
-      background-color: #0b1120;
+    .contact-card p {
+      color: var(--text-30-muted);
+      margin-bottom: 25px;
     }
 
-    .footer-container {
+    .contact-links {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 20px;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .footer-container p { color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
-    .socials a { color: var(--text-muted); margin-left: 15px; font-size: 1.3rem; transition: color 0.3s; }
-    .socials a:hover { color: var(--accent); }
+    /* FOOTER */
+    footer {
+      padding: 25px 0;
+      text-align: center;
+      color: var(--text-30-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
 
-    .copyright { text-align: center; border-top: 1px solid var(--border); padding-top: 20px; color: var(--text-muted); font-size: 0.85rem; }
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+      .mobile-toggle {
+        display: block;
+      }
 
-    /* Responsive Layout */
-    @media (max-width: 900px) {
-      .hero-container, .grid-3, .grid-2, .contact-grid { grid-template-columns: 1fr; }
-      .footer-container { flex-direction: column; text-align: center; gap: 20px; }
-      .socials a { margin: 0 10px; }
-      .mobile-toggle { display: block; }
       .nav-links {
         display: none;
         flex-direction: column;
@@ -325,239 +551,571 @@
         top: 100%;
         left: 0;
         width: 100%;
-        background-color: var(--bg-card);
+        background-color: var(--bg-60-card);
         padding: 20px;
-        border-bottom: 1px solid var(--border);
+        border-bottom: 2px solid var(--border);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        gap: 15px;
       }
-      .nav-links.active { display: flex; }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .timeline::after { left: 25px; }
+      .timeline-item { width: 100%; padding-left: 55px; padding-right: 15px; }
+      .timeline-item::after { left: 18px; }
+      .left, .right { left: 0; }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-content { text-align: center; justify-content: center; }
+      .reviews-container { grid-template-columns: 1fr; }
+      .slide-img-box { height: 260px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <a href="#" class="logo"><img src="logo.jpeg"></i> KB TECH SOLUTIONS</a>
-      <ul class="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact-info">Contact</a></li>
-        <li><a href="#reviews">Reviews</a></li>
-        <li><a href="https://wa.me/2330535022511" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a></li>
-      </ul>
-      <button class="mobile-toggle" aria-label="Toggle Navigation">
+  <!-- TOP STICKY NAVIGATION SECTIONS -->
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">KB <span>TECH</span></a>
+      <div class="mobile-toggle" id="mobileToggle">
         <i class="fa-solid fa-bars"></i>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="container hero-container">
-      <div class="hero-content">
-        <span class="badge">Your One-Stop Tech & Design Partner</span>
-        <h1>Innovative Ideas Through Tech & Design</h1>
-        <p>From custom web development and graphic design to apparel branding, picture framing, and affordable data bundles—we deliver top-tier solutions for your business and personal needs.</p>
-        <div class="hero-btns">
-          <a href="https://wa.me/2330535022511" target="_blank" class="btn btn-whatsapp"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
-          <a href="mailto:baisiejerryatta@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Email Us</a>
-          <a href="#services" class="btn btn-secondary">Our Services</a>
-        </div>
       </div>
-    
-       
-      </div>
-    </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Quick Contact Bar -->
-  <section id="contact-info" class="contact-bar">
-    <div class="container contact-grid">
-      <div class="contact-info-card">
-        <i class="fa-solid fa-envelope"></i>
-        <div>
-          <small style="color: var(--text-muted);">Email Us</small><br>
-          <a href="mailto:baisiejerryatta@gmail.com"><strong>baisiejerryatta@gmail.com</strong></a>
-        </div>
-      </div>
-      <div class="contact-info-card">
-        <i class="fa-solid fa-phone"></i>
-        <div>
-          <small style="color: var(--text-muted);">Call or WhatsApp</small><br>
-          <a href="tel:+233553619468"><strong>+233553619468</strong></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section id="services" class="services">
-    <div class="container">
-      <div class="section-title">
-        <h2>What We Offer</h2>
-        <p>Comprehensive technology and creative services designed for excellence.</p>
+  <!-- ABOUT ME SECTION -->
+  <section id="about" class="hero">
+    <div class="container hero-content">
+      <div class="hero-img-container">
+        <img src="ceo.jpeg" alt="Jerry Atta Baisie">
       </div>
 
-      <div class="grid grid-3">
-        <div class="service-card">
-          <div class="icon"><i class="fa-solid fa-code"></i></div>
-          <h3>Web Development</h3>
-          <p>Modern, responsive, and secure websites tailored for businesses, portfolios, and e-commerce portals.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="icon"><i class="fa-solid fa-pen-nib"></i></div>
-          <h3>Graphic Designing</h3>
-          <p>Eye-catching logos, promotional flyers, business cards, and social media brand identity graphics.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="icon"><i class="fa-solid fa-shirt"></i></div>
-          <h3>Clothe Branding</h3>
-          <p>Custom T-shirt printing, corporate apparel, hoodies, and merchandise branding for groups or events.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="icon"><i class="fa-solid fa-wifi"></i></div>
-          <h3>Data Bundles</h3>
-          <p>Fast, reliable, and affordable high-speed internet data packages for all major network providers.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="icon"><i class="fa-solid fa-image"></i></div>
-          <h3>Picture Framing</h3>
-          <p>High-quality photo mounting, glass canvas frames, and wall art framing for memories and decor.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reviews Section -->
-  <section id="reviews" class="reviews">
-    <div class="container">
-      <div class="section-title">
-        <h2>Customer Reviews</h2>
-        <p>See what our clients say, or share your own experience with KB Tech Solutions.</p>
-      </div>
-
-      <!-- Static Featured Reviews -->
-      <div class="grid grid-2" id="reviewsContainer">
-        <div class="review-card">
-          <div class="review-header">
-            <strong>John D.</strong>
-            <span class="stars">★★★★★</span>
-          </div>
-          <p>"KB Tech Solutions created an amazing website for my business and handled our branded T-shirts. Top quality!"</p>
-        </div>
-        <div class="review-card">
-          <div class="review-header">
-            <strong>Sarah M.</strong>
-            <span class="stars">★★★★★</span>
-          </div>
-          <p>"Super fast data bundle delivery and excellent picture framing. Highly recommended!"</p>
-        </div>
-      </div>
-
-      <!-- Formspree Review Form -->
-      <div class="review-form-wrapper">
-        <h3>Leave a Review</h3>
-        <form id="reviewForm" action="https://formspree.io/f/xaewozpw" method="POST">
-          <div class="form-group">
-            <input type="text" name="name" id="reviewerName" placeholder="Your Name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" name="_replyto" id="reviewerEmail" placeholder="Your Email Address" required>
-          </div>
-          <div class="form-group">
-            <select name="rating" id="reviewerRating" required>
-              <option value="5 Stars">★★★★★ (5/5 Stars)</option>
-              <option value="4 Stars">★★★★☆ (4/5 Stars)</option>
-              <option value="3 Stars">★★★☆☆ (3/5 Stars)</option>
-              <option value="2 Stars">★★☆☆☆ (2/5 Stars)</option>
-              <option value="1 Star">★☆☆☆☆ (1/5 Star)</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <textarea name="message" id="reviewerMessage" rows="4" placeholder="Write your review here..." required></textarea>
-          </div>
-          <button type="submit" id="submitBtn" class="btn btn-primary">Submit Review</button>
-          <div id="formStatus" class="form-status"></div>
-        </form>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Footer / Contact -->
-  <footer id="contact">
-    <div class="container footer-container">
-      <div>
-        <h3>KB TECH SOLUTIONS</h3>
-        <p>Web Development | Graphic Design | Clothe Branding | Data Bundles | Picture Framing</p>
-        <p style="margin-top: 10px;">
-          <i class="fa-solid fa-envelope"></i> baisiejerryatta@gmail.com | 
-          <i class="fa-solid fa-phone"></i> +233553619468
+      <div class="hero-text">
+        <h1>Hi, I am J.K Atta Baisie</h1>
+        <p class="about-paragraph">
+          I am an enthusiastic tech entrepreneur, web developer, and graphic designer operating through KB Tech Solutions in Anomabo, Ghana. I combine modern software development with hands-on physical production—including custom t-shirt printing, bespoke award sashes, picture framing, and brand identity design. My focus is on creating functional digital tools and visual assets that help individuals, events, and businesses grow.
         </p>
-      </div>
-      <div class="socials">
-        <a href="https://wa.me/233535022511" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+
+        <div class="cta-buttons">
+          <a href="#contact" class="btn">
+            <i class="fa-solid fa-paper-plane"></i> Get In Touch
+          </a>
+          <a href="https://wa.me/233553619468" class="btn btn-dark" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
       </div>
     </div>
-    <div class="copyright">
-      <p>&copy; 2026 KB Tech Solutions. All rights reserved.</p>
+  </section>
+
+  <!-- ACADEMIC JOURNEY -->
+  <section id="academics">
+    <div class="container">
+      <h2 class="section-title">Academic <span>Journey</span></h2>
+      <p class="section-subtitle">My educational pathway starting from basic school to university studies.</p>
+
+      <div class="timeline">
+        <!-- 1. JHS -->
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <span class="timeline-badge">1. Junior High School</span>
+            <h3>Methodist Basic School, Anomabo</h3>
+            <p>Completed basic education certificate with academic honors, building early foundations in science and problem solving.</p>
+          </div>
+        </div>
+
+        <!-- 2. SHS -->
+        <div class="timeline-item right">
+          <div class="timeline-content">
+            <span class="timeline-badge">2. Senior High School</span>
+            <h3>Assin Manso Senior High</h3>
+            <p>Graduated with strong technical aptitude and analytical capabilities across mathematics and introductory engineering and IT concepts.</p>
+          </div>
+        </div>
+
+        <!-- 3. University -->
+        <div class="timeline-item left">
+          <div class="timeline-content">
+            <span class="timeline-badge">3. Tertiary / Professional Development</span>
+            <h3>Continuous Learning & Professional Seminars</h3>
+            <p>Attended specialized technical seminars and industry workshops to acquire advanced skills in web development and brand execution.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES SECTION -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-title">My <span>Services</span></h2>
+      <p class="section-subtitle">Entrepreneurial solutions designed for corporate brands, events, and private clients.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+          <h3>Website Development</h3>
+          <p>Custom, responsive websites built with modern front-end and back-end web tools.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+          <h3>Graphic Design</h3>
+          <p>High-resolution event flyers, corporate logos, promotional cards, and product packaging.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-shirt"></i></div>
+          <h3>T-Shirts Customization</h3>
+          <p>Apparel printing for organizations, personal brands, and promotional streetwear.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-frame"></i></div>
+          <h3>Picture Frames</h3>
+          <p>Crafted glass and wooden picture framing to preserve memorable photos and awards.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-ribbon"></i></div>
+          <h3>Sash Customization</h3>
+          <p>Personalized sashes for graduation events, birthdays, pageants, and award ceremonies.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-box"></i></div>
+          <h3>& More Services</h3>
+          <p>Event branding suites, digital print materials, and internet data services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS SECTION (14 SLIDES CAROUSEL) -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured <span>Projects</span></h2>
+      <p class="section-subtitle">Browse through 14 highlighted projects from web apps to brand installations.</p>
+
+      <div class="carousel-container" id="carouselContainer">
+        <!-- MANUAL CONTROLS -->
+        <button class="carousel-btn prev-btn" id="prevBtn" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="carousel-btn next-btn" id="nextBtn" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
+
+        <!-- SLIDES TRACK -->
+        <div class="carousel-track" id="carouselTrack">
+          
+          <!-- Slide 1 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p7.jpeg" alt="Web Platform & Booking Portals">
+            </div>
+            <div class="slide-caption">
+              <h3>1. Web Portfolios for Business owners</h3>
+            
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p2.jpeg" alt="Event Graphic Design">
+            </div>
+            <div class="slide-caption">
+              <h3>Business cards</h3>
+              
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p3.jpeg" alt="Apparel & Sashes">
+            </div>
+            <div class="slide-caption">
+              <h3>Web development</h3>
+              
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p4.jpeg" alt="E-Commerce Solutions">
+            </div>
+            <div class="slide-caption">
+              <h3>Church Flyers</h3>
+              
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p5.jpeg" alt="Corporate Brand Suites">
+            </div>
+            <div class="slide-caption">
+              <h3>clean websites</h3>
+              
+            </div>
+          </div>
+
+          <!-- Slide 6 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p6.jpeg" alt="Award Sashes Design">
+            </div>
+            <div class="slide-caption">
+              <h3>customized qr codes on cards, frames and flowers</h3>
+            
+            </div>
+          </div>
+
+          <!-- Slide 7 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p7.jpeg" alt="Picture Framing">
+            </div>
+            <div class="slide-caption">
+              <h3>All frontend and backend websites </h3>
+              
+            </div>
+          </div>
+
+          <!-- Slide 8 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p8.jpeg" alt="Product Packaging">
+            </div>
+            <div class="slide-caption">
+              <h3>Quality and affordable picture frames</h3>
+          
+            </div>
+          </div>
+
+          <!-- Slide 9 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p9.jpeg" alt="Personalized Event Websites">
+            </div>
+            <div class="slide-caption">
+              <h3>Quality customized t-shirts</h3>
+              
+            </div>
+          </div>
+
+          <!-- Slide 10 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p10.jpeg" alt="Custom Streetwear">
+            </div>
+            <div class="slide-caption">
+              <h3>Durable plain polos, and sports jerseys for clubs and local brands.</h3>
+              
+            </div>
+          </div>
+
+          <!-- Slide 11 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p11.jpeg" alt="Social Media Graphics">
+            </div>
+            <div class="slide-caption">
+              <h3>sash customization</h3>
+            
+            </div>
+          </div>
+
+          <!-- Slide 12 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p12.jpeg" alt="Data Services Portal">
+            </div>
+            <div class="slide-caption">
+              <h3>All clean flers</h3>
+              
+            </div>
+          </div>
+
+          <!-- Slide 13 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p13.jpeg" alt="Large Format Printing">
+            </div>
+            <div class="slide-caption">
+              <h3>Nice , attractive business cards</h3>
+          
+            </div>
+          </div>
+
+          <!-- Slide 14 -->
+          <div class="carousel-slide">
+            <div class="slide-img-box">
+              <img src="p14.jpeg" alt="UI UX Design">
+            </div>
+            <div class="slide-caption">
+              <h3>Mordern , clean and elegant election flyers</h3>
+              
+            </div>
+          </div>
+
+        </div>
+
+        <!-- PAGINATION DOTS -->
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+ <form id="reviewForm" action="https://formspree.io/f/myegbvad" method="POST">
+  <div class="form-group">
+    <label for="clientName">Your Name</label>
+    <input type="text" id="clientName" name="name" placeholder="Enter your full name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="rating">Rating</label>
+    <select id="rating" name="rating" required>
+      <option value="5">⭐⭐⭐⭐⭐ (5/5 Excellent)</option>
+      <option value="4">⭐⭐⭐⭐ (4/5 Very Good)</option>
+      <option value="3">⭐⭐⭐ (3/5 Good)</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="reviewMessage">Your Review</label>
+    <textarea id="reviewMessage" name="review" rows="3" placeholder="Share your feedback..." required></textarea>
+  </div>
+
+  <button type="submit" class="btn" style="width: 100%; justify-content: center;">Submit Feedback</button>
+</form>
+        </div>
+
+        <!-- Reviews List -->
+        <div class="review-list-card">
+          <h3 style="color: var(--text-30-dark); margin-bottom: 15px;">Recent Feedback</h3>
+          <div id="reviewsList">
+            <!-- Initial Default Reviews -->
+            <div class="review-item">
+              <div class="review-header">
+                <span class="reviewer-name">Sika Sonic Co.</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </div>
+              <p class="review-text">"Outstanding graphic design and product labels. Fast turn-around!"</p>
+            </div>
+
+            <div class="review-item">
+              <div class="review-header">
+                <span class="reviewer-name">Anomabo Youth Event</span>
+                <span class="stars">⭐⭐⭐⭐⭐</span>
+              </div>
+              <p class="review-text">"The customized sashes and flyers were top-tier. Highly recommended!"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT ME SECTION -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <h3>Contact Me Directly</h3>
+        <p>Ready to start a project or order custom branding products? Reach out directly via WhatsApp or Email.</p>
+        
+        <div class="contact-links">
+          <a href="https://wa.me/233535022511" class="btn" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp (0535022511)
+          </a>
+          <a href="tel:0553619468" class="btn btn-dark">
+            <i class="fa-solid fa-phone"></i> Call (0553619468)
+          </a>
+          <a href="mailto:baisiejerryatta@gmail.com" class="btn btn-dark">
+            <i class="fa-solid fa-envelope"></i> Email Me
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>© 2026 KB Tech Solutions | Kofi Baisie</p>
     </div>
   </footer>
 
-  <!-- EMBEDDED JAVASCRIPT -->
+  <!-- SCRIPT LOGIC -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // Mobile Nav Toggle
-      const mobileToggle = document.querySelector('.mobile-toggle');
-      const navLinks = document.querySelector('.nav-links');
+    // --- MOBILE MENU TOGGLE ---
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
 
-      mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile nav when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
       });
+    });
 
-      // AJAX Formspree Submission Handling
-      const form = document.getElementById('reviewForm');
-      const formStatus = document.getElementById('formStatus');
-      const submitBtn = document.getElementById('submitBtn');
+    // --- AUTOMATIC, MANUAL & TOUCH SLIDING CAROUSEL ---
+    const track = document.getElementById('carouselTrack');
+    const slides = Array.from(track.children);
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const dotsContainer = document.getElementById('carouselDots');
+    const carouselContainer = document.getElementById('carouselContainer');
 
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        submitBtn.disabled = true;
-        submitBtn.innerText = 'Sending...';
+    let currentIndex = 0;
+    let autoSlideInterval;
 
-        const formData = new FormData(form);
+    // Build 14 pagination dots
+    slides.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
 
+    const dots = Array.from(dotsContainer.children);
+
+    function updateCarousel() {
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      currentIndex = index;
+      updateCarousel();
+      resetTimer();
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % slides.length;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateCarousel();
+    }
+
+    // Manual Arrow Controls
+    nextBtn.addEventListener('click', () => { nextSlide(); resetTimer(); });
+    prevBtn.addEventListener('click', () => { prevSlide(); resetTimer(); });
+
+    // Touch Swipe Controls for Mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carouselContainer.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    carouselContainer.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, { passive: true });
+
+    function handleSwipe() {
+      const threshold = 40;
+      if (touchEndX < touchStartX - threshold) {
+        nextSlide();
+        resetTimer();
+      }
+      if (touchEndX > touchStartX + threshold) {
+        prevSlide();
+        resetTimer();
+      }
+    }
+
+    // Auto Transition (4 Seconds)
+    function startTimer() {
+      autoSlideInterval = setInterval(nextSlide, 4000);
+    }
+
+    function resetTimer() {
+      clearInterval(autoSlideInterval);
+      startTimer();
+    }
+
+    startTimer();
+
+    // --- PERSISTENT REVIEWS VIA LOCALSTORAGE ---
+    const reviewForm = document.getElementById('reviewForm');
+    const reviewsList = document.getElementById('reviewsList');
+    const STORAGE_KEY = 'kb_portfolio_reviews_v1';
+
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, 
+        tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+    }
+
+    function renderReviewDOM(name, rating, message) {
+      const stars = '⭐'.repeat(parseInt(rating));
+      const newReview = document.createElement('div');
+      newReview.className = 'review-item';
+      newReview.innerHTML = `
+        <div class="review-header">
+          <span class="reviewer-name">${escapeHTML(name)}</span>
+          <span class="stars">${stars}</span>
+        </div>
+        <p class="review-text">"${escapeHTML(message)}"</p>
+      `;
+      reviewsList.prepend(newReview);
+    }
+
+    function loadSavedReviews() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
         try {
-          const response = await fetch(form.action, {
-            method: 'POST',
-            body: formData,
-            headers: { 'Accept': 'application/json' }
-          });
-
-          if (response.ok) {
-            formStatus.className = 'form-status success';
-            formStatus.innerText = 'Thank you! Your review has been sent directly to KB Tech Solutions.';
-            form.reset();
-          } else {
-            const data = await response.json();
-            formStatus.className = 'form-status error';
-            formStatus.innerText = data.errors ? data.errors.map(err => err.message).join(', ') : 'Oops! There was a problem submitting your review.';
-          }
-        } catch (error) {
-          formStatus.className = 'form-status error';
-          formStatus.innerText = 'Oops! There was a network issue. Please try again.';
-        } finally {
-          submitBtn.disabled = false;
-          submitBtn.innerText = 'Submit Review';
+          const reviews = JSON.parse(saved);
+          reviews.forEach(rev => renderReviewDOM(rev.name, rev.rating, rev.message));
+        } catch (err) {
+          console.error("Could not parse stored reviews", err);
         }
-      });
+      }
+    }
+
+    // Load stored reviews on page load
+    loadSavedReviews();
+
+    reviewForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('clientName').value.trim();
+      const rating = document.getElementById('rating').value;
+      const message = document.getElementById('reviewMessage').value.trim();
+
+      if (!name || !message) return;
+
+      // Append to DOM
+      renderReviewDOM(name, rating, message);
+
+      // Save to LocalStorage
+      const saved = localStorage.getItem(STORAGE_KEY);
+      const reviews = saved ? JSON.parse(saved) : [];
+      reviews.push({ name, rating, message });
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(reviews));
+
+      reviewForm.reset();
+      alert('Thank you! Your feedback has been published.');
     });
   </script>
 </body>
